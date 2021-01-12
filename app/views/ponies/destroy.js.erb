@@ -1,0 +1,25 @@
+$('.delete_pony').bind('ajax:success', function() {
+   $(this).closest('td').fadeOut();
+});
+
+ function myFunction()
+  {
+    alert('here');
+     $('.submit').on('click', function(e){
+   e.preventDefault();
+
+   var name = $('input#name').val(),
+       email = $('input#profession').val(),
+       formData = 'name=' + name + '&profession=' + profession
+
+    $.ajax({
+      type: 'post',
+      url: 'ponies/create',
+      data: formData,
+      success: function(results) 
+      {
+        $('ul#response').html(results);
+       }
+     });
+    });
+  }
